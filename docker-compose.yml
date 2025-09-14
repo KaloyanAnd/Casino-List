@@ -1,0 +1,38 @@
+
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "8000:8000"
+    environment:
+      APP_ENV: local
+      APP_DEBUG: true
+      APP_KEY: # TODO: Generate and set your Laravel APP_KEY
+      DB_CONNECTION: mysql
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_DATABASE: brand_toplist
+      DB_USERNAME: laravel
+      DB_PASSWORD: bobothunder
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mariadb:11
+    environment:
+      MYSQL_ROOT_PASSWORD: bobothunder
+      MYSQL_DATABASE: brand_toplist
+      MYSQL_USER: laravel
+      MYSQL_PASSWORD: bobothunder
+    ports:
+      - "3307:3306"
+    volumes:
+      - dbdata:/var/lib/mysql
+      
+volumes:
+  dbdata:

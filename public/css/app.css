@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+}
+.container {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+h1 {
+    text-align: center;
+    color: #2c3e50;
+}
+.brand-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.brand-item {
+    display: flex;
+    align-items: center;
+    background: #eaf6fb;
+    border-radius: 6px;
+    padding: 12px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+}
+.brand-image {
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
+    border-radius: 4px;
+    margin-right: 16px;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+.brand-info {
+    flex: 1;
+}
+.brand-name {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #34495e;
+}
+.brand-rating {
+    color: #f39c12;
+    font-size: 1em;
+}
+@media (max-width: 600px) {
+    .container {
+        max-width: 100%;
+        padding: 10px;
+    }
+    .brand-item {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .brand-image {
+        margin-bottom: 8px;
+        margin-right: 0;
+    }
+}
