@@ -15,7 +15,8 @@ return new class extends Migration
             $table->id('brand_id');
             $table->string('brand_name');
             $table->string('brand_image');
-            $table->integer('rating');
+            $table->float('rating');
+            $table->string('country_code', 2);
             $table->timestamps();
         });
     }

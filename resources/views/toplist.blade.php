@@ -31,7 +31,7 @@
 
                         <!-- Logo -->
                         <div class="w-40 h-40 flex items-center justify-center">
-                            <img src="{{ $brand->brand_image }}" alt="{{ $brand->brand_name }}"
+                            <img src="images/{{ $brand->brand_image }}" alt="{{ $brand->brand_name }}"
                                 class="max-w-full max-h-full object-contain" />
                         </div>
 
