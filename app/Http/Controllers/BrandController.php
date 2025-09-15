@@ -12,17 +12,13 @@ class BrandController extends Controller
     public function index(Request $request)
     {
         $country = $request->header('CF-IPCountry');
-        // Example: country-specific toplist logic
-        // You can extend this with a Country model or config for real data
-        $iso2CountryBrands = [
-            'FR' => Brand::where('brand_name', 'like', '%France%')->orderByDesc('rating')->get(),
-            'DE' => Brand::where('brand_name', 'like', '%Germany%')->orderByDesc('rating')->get(),
-            // Add more ISO-2 country codes and logic as needed
-        ];
-        if ($country && isset($iso2CountryBrands[$country]) && $iso2CountryBrands[$country]->count() > 0) {
-            return response()->json($iso2CountryBrands[$country]);
+        if ($country) {
+            $brands = Brand::where('country_code', $country)->orderByDesc('rating')->get();
+            if ($brands->count() > 0) {
+                return response()->json($brands);
+            }
         }
-        // Default toplist if country not found or empty
+        // Default toplist if country not found or no brands for country
         return response()->json(Brand::orderByDesc('rating')->get());
     }
 
