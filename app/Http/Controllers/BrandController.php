@@ -8,7 +8,6 @@ use App\Models\Brand;
 class BrandController extends Controller
 {
 
-    // List brands based on geolocation (CF-IPCountry header)
     public function index(Request $request)
     {
         $country = $request->header('CF-IPCountry');
@@ -18,7 +17,7 @@ class BrandController extends Controller
                 return response()->json($brands);
             }
         }
-        // Default toplist if country not found or no brands for country
+        
         return response()->json(Brand::orderByDesc('rating')->get());
     }
 

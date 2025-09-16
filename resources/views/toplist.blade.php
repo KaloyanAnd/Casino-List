@@ -20,12 +20,10 @@
 
             <ul class="space-y-4">
                 @foreach ($brands as $index => $brand)
-                    <li
-                        class="grid grid-cols-1 min-h-[15vh] sm:grid-cols-[8%_minmax(100px,20%)_1fr_minmax(150px,25%)] gap-4 items-center bg-white rounded-xl shadow-sm p-4 hover:shadow-md transition duration-300">
+                    <li class="grid grid-cols-1 min-h-[15vh] sm:grid-cols-[8%_minmax(100px,20%)_1fr_minmax(150px,25%)] gap-4 items-center bg-white rounded-xl shadow-sm p-4 hover:shadow-md transition duration-300">
 
                         <!-- Rank -->
-                        <div
-                            class="flex items-center justify-center font-bold text-lg text-white bg-blue-500 rounded-lg h-12 w-12 mx-auto sm:mx-0">
+                        <div class="flex items-center justify-center font-bold text-lg text-white bg-blue-500 rounded-lg h-12 w-12 mx-auto sm:mx-0">
                             {{ $index + 1 }}
                         </div>
 
@@ -43,7 +41,7 @@
                             </span>
                         </div>
 
-                        <!-- Stars + rating -->
+                        <!-- Rating -->
                         <div class="flex justify-center sm:justify-start items-center space-x-2">
                             <span class="ml-2 text-gray-700 text-lg sm:text-xl font-bold">
                                 {{ number_format($brand->rating, 1) }}
@@ -64,7 +62,6 @@
                                 <i class="ri-star-line text-gray-300 text-2xl sm:text-3xl"></i>
                             @endfor
                         </div>
-
                     </li>
                 @endforeach
             </ul>
